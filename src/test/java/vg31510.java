@@ -133,7 +133,7 @@ public class vg31510 {
         renderConfig.setBatch(batchInfo);
         renderConfig.setDefaultMatchSettings(ims);
 
-        renderConfig.addBrowser(1300, 600, BrowserType.CHROME);
+        renderConfig.addBrowser(1200, 600, BrowserType.CHROME);
         renderConfig.addBrowser(1200, 600, BrowserType.IE_11);
         renderConfig.addBrowser(1200, 600, BrowserType.IE_10);
         renderConfig.addBrowser(1200, 600, BrowserType.EDGE);
