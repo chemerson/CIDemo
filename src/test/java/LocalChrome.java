@@ -53,6 +53,8 @@ public class LocalChrome {
 
         tests.urlscan.scanlist(driver, eyes, params.URL_FILE);
 
+        eyes.checkWindow(System.getenv("APPLITOOLS_BATCH_ID"));
+
         TestResults testResult = eyes.close(false);
         System.out.println("Applitools Test Results");
         System.out.println(testResult.toString());
