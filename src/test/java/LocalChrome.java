@@ -79,6 +79,7 @@ public class LocalChrome {
 
         }
         eyes.setBatch(batchInfo);
+        // Feature 2 branch
 
         driver = utils.drivers.getLocalChrome(threadId);
         driver.manage().timeouts().setScriptTimeout(90, TimeUnit.SECONDS);
