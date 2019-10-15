@@ -10,3 +10,5 @@ install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   - sleep 3
+script:
+  - export APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
