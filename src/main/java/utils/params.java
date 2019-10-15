@@ -4,15 +4,15 @@ import com.applitools.eyes.MatchLevel;
 
 public class params {
 
-    public static String EYES_KEY = System.getProperty("eyesAPIKey", "DEFAULT_TOKEN");
-    //public static String EYES_KEY = "18IoQ102FEtR31VdC75SpLe1104gLDNp110QBdSSEDgQeoto8110";
-    //public static String EYES_URL = "https://nytimeseyes.applitools.com";
+    //public static String EYES_KEY = System.getProperty("eyesAPIKey", "DEFAULT_TOKEN");
+    public static String EYES_KEY = "8pVdTA8n6joSM18VHrggfo9OHmhaFjepyAbkdrZ1NcU110";
+
     public static String EYES_URL = "https://eyes.applitools.com";
 
     public static String GRID_URL = "http://localhost:4444/wd/hub";
 
     private static String name = "url";
-    private static String suffix = " Jenkins";
+    private static String suffix = " CI";
     public static Boolean changePage = false;  // to change the content for demo purposes
     public static String APP_NAME = name + suffix;
     public static String TEST_NAME = name + suffix;
