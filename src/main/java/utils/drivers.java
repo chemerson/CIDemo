@@ -25,7 +25,7 @@ public class drivers {
             ChromeOptions cOptions = new ChromeOptions();
             System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
-           // cOptions.addArguments("--headless");
+            cOptions.addArguments("--headless");
             cOptions.addArguments("--disable-popup-blocking");
             cOptions.addArguments("--disable-default-apps");
             cOptions.addArguments("--start-maximized");
