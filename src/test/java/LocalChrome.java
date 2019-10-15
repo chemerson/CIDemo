@@ -76,7 +76,7 @@ public class LocalChrome {
         try {
             batchInfo.setId(System.getenv("APPLITOOLS_BATCH_ID"));
         } catch (Exception e) {
-            
+
         }
         eyes.setBatch(batchInfo);
 
