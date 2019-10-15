@@ -75,7 +75,9 @@ public class LocalChrome {
         if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
         try {
             batchInfo.setId(System.getenv("APPLITOOLS_BATCH_ID"));
-        } catch (Exception e) { }
+        } catch (Exception e) {
+            
+        }
         eyes.setBatch(batchInfo);
 
         driver = utils.drivers.getLocalChrome(threadId);
