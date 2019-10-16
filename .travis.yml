@@ -1,0 +1,16 @@
+language: java
+addons: # get google-chrome-stable
+  chrome: stable
+install: # Install ChromeDriver
+  - wget -N http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - export CHROME_BIN=chromium-browser
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  - sleep 3
+before_script:
+  - export APPLITOOLS_BATCH_ID=${TRAVIS_PULL_REQUEST_SHA}
+  - export APPLITOOLS_BATCH_ID=${TRAVIS_COMMIT}
+  - set | grep APPLITOOLS
