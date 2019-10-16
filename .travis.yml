@@ -10,5 +10,8 @@ install: # Install ChromeDriver
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   - sleep 3
-script:
-  - export APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
+before_script:
+  - export APPLITOOLS_BATCH_ID=${TRAVIS_PULL_REQUEST_SHA}
+  - export APPLITOOLS_BATCH_ID=${TRAVIS_COMMIT}
+  - set
+
