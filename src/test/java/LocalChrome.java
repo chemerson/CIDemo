@@ -19,13 +19,11 @@ import java.util.concurrent.TimeUnit;
 public class LocalChrome {
 
     protected RemoteWebDriver driver;
-
     protected Eyes eyes;
 
     private static final String BATCH_NAME = params.BATCH_NAME;
     private static final String BATCH_ID = params.BATCH_ID;
     private static final String APP_NAME = params.APP_NAME;
-
 
     @Parameters({"platformName", "platformVersion", "browserName", "browserVersion"})
     @Test(priority = 1, alwaysRun = true, enabled = true)
@@ -37,21 +35,25 @@ public class LocalChrome {
         long before;
 
         //Force to check against specific baseline branch
-        //eyes.setBaselineBranchName("Firefox");
+        //eyes.setBaselineBranchName("CIBC");
         //Force; to check with the forced baselines corresponding environment
         //eyes.setBaselineEnvName("FF1200x900");
+        //eyes.setAppName();
 
         //Set the environment name in the test batch results
         //eyes.setEnvName(driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
+        //eyes.setEnvName("CIBC");
 
         eyes.setMatchLevel(params.MATCH_MODE);
         eyes.setStitchMode(StitchMode.CSS);
         eyes.setForceFullPageScreenshot(false);
         if(params.FULL_SCREEN) eyes.setForceFullPageScreenshot(true);
         eyes.setSendDom(true);
-        eyes.open(driver,APP_NAME, testName, new RectangleSize(1400, 900));
+        eyes.open(driver,APP_NAME, testName, new RectangleSize(1200, 600));
 
         tests.urlscan.scanlist(driver, eyes, params.URL_FILE);
+
+        eyes.checkWindow(BATCH_ID);
 
         TestResults testResult = eyes.close(false);
         System.out.println("Applitools Test Results");
@@ -68,11 +70,12 @@ public class LocalChrome {
         long before = System.currentTimeMillis();
 
         eyes = utils.myeyes.getEyes(threadId);
-        eyes.setLogHandler(new FileLogger("log/file.log",true,true));
+        eyes.setLogHandler(new FileLogger("log/Eyes_LC.log",true,true));
         eyes.setServerUrl(params.EYES_URL);
 
         BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
         if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
+        System.out.println("Batch id: " + BATCH_ID);
         eyes.setBatch(batchInfo);
 
         driver = utils.drivers.getLocalChrome(threadId);
@@ -92,7 +95,8 @@ public class LocalChrome {
 
         if (driver != null) {
             long before = System.currentTimeMillis();
-            eyes.abortIfNotClosed();
+            //eyes.abortIfNotClosed(); // deprecated
+            if(!eyes.getIsOpen()) eyes.abort();
             driver.quit();
             System.out.println("Driver quit took " + (System.currentTimeMillis() - before) + "ms");
         }
