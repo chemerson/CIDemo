@@ -53,6 +53,8 @@ public class LocalChrome {
 
         tests.urlscan.scanlist(driver, eyes, params.URL_FILE);
 
+        eyes.checkWindow(BATCH_ID);
+
         TestResults testResult = eyes.close(false);
         System.out.println("Applitools Test Results");
         System.out.println(testResult.toString());
@@ -73,13 +75,8 @@ public class LocalChrome {
 
         BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
         if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
-        try {
-            batchInfo.setId(System.getenv("APPLITOOLS_BATCH_ID"));
-        } catch (Exception e) {
-
-        }
+        System.out.println("Batch id: " + BATCH_ID);
         eyes.setBatch(batchInfo);
-        // Feature 2 branch
 
         driver = utils.drivers.getLocalChrome(threadId);
         driver.manage().timeouts().setScriptTimeout(90, TimeUnit.SECONDS);

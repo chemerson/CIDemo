@@ -14,10 +14,10 @@ public class myeyes {
 
     public static Eyes getEyes(String threadId){
 
-        // EyesRunner runner = new ClassicRunner();
+        EyesRunner runner = new ClassicRunner();
 
         if (eyes == null || !eyes.containsKey(threadId)) {
-            Eyes eye = new Eyes();
+            Eyes eye = new Eyes(runner);
             eye.setApiKey(params.EYES_KEY);
             eyes.put(threadId, eye);
         }
