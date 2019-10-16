@@ -1,7 +1,7 @@
 language: java
 addons: # get google-chrome-stable
   chrome: stable
-install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
+install: # Install ChromeDriver
   - wget -N http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -P ~/
   - unzip ~/chromedriver_linux64.zip -d ~/
   - export CHROME_BIN=chromium-browser
@@ -10,5 +10,5 @@ install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   - sleep 3
-env:
-  - APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
+script:
+  - export APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
