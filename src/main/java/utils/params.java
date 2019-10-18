@@ -38,9 +38,10 @@ public class params {
     private static String getBatchId(){
         String batchId = null;
 
-        if(System.getenv("APPLITOOLS_BATCH_ID") != null)
-            System.out.println("Batch Id found in environment");
+        if(System.getenv("APPLITOOLS_BATCH_ID") != null) {
             batchId = System.getenv("APPLITOOLS_BATCH_ID");
+            System.out.println("Batch Id found in environment: " + batchId.toString());
+        }
 
         return batchId;
     }
