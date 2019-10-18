@@ -84,7 +84,7 @@ public class LocalChrome {
 
 
         //Allows for filtering dashboard view
-        eyes.addProperty("Version", "v1.0 Pull Request 3");
+        eyes.addProperty("Version", "v1.0 Pull Request 4");
 
         System.out.println("START THREAD ID - " + Thread.currentThread().getId() + " " + browserName + " " + browserVersion);
         System.out.println("baseBeforeClass took " + (System.currentTimeMillis() - before) + "ms");
