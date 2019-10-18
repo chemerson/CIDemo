@@ -75,13 +75,6 @@ public class LocalChrome {
 
         BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
         if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
-        System.out.println("Batch id: " + BATCH_ID);
-
-        System.out.println("Batch id: " + BATCH_ID);
-        System.out.println("Batch id: " + BATCH_ID);
-        System.out.println("Batch id: " + BATCH_ID);
-
-
         eyes.setBatch(batchInfo);
 
         driver = utils.drivers.getLocalChrome(threadId);
