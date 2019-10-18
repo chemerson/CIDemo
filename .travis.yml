@@ -12,5 +12,5 @@ install: # Install ChromeDriver
   - sleep 3
 before_script:
   - export APPLITOOLS_BATCH_ID=${TRAVIS_PULL_REQUEST_SHA:=TRAVIS_COMMIT}
-  - set
+
 
