@@ -75,6 +75,7 @@ public class LocalChrome {
 
         BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
         if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
+
         eyes.setBatch(batchInfo);
 
         driver = utils.drivers.getLocalChrome(threadId);
@@ -83,7 +84,7 @@ public class LocalChrome {
 
 
         //Allows for filtering dashboard view
-        eyes.addProperty("SANDBOX", "Custom var1");
+        eyes.addProperty("Version", "v1.0 Pull Request 3");
 
         System.out.println("START THREAD ID - " + Thread.currentThread().getId() + " " + browserName + " " + browserVersion);
         System.out.println("baseBeforeClass took " + (System.currentTimeMillis() - before) + "ms");
