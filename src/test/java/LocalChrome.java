@@ -53,8 +53,6 @@ public class LocalChrome {
 
         tests.urlscan.scanlist(driver, eyes, params.URL_FILE);
 
-        eyes.checkWindow(BATCH_ID);
-
         TestResults testResult = eyes.close(false);
         System.out.println("Applitools Test Results");
         System.out.println(testResult.toString());
@@ -84,7 +82,7 @@ public class LocalChrome {
 
 
         //Allows for filtering dashboard view
-        eyes.addProperty("Version", "v1.0 Pull Request 4");
+        eyes.addProperty("Version", "v1.0.1 first request");
 
         System.out.println("START THREAD ID - " + Thread.currentThread().getId() + " " + browserName + " " + browserVersion);
         System.out.println("baseBeforeClass took " + (System.currentTimeMillis() - before) + "ms");
