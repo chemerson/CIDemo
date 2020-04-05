@@ -46,7 +46,7 @@ public class LocalChrome {
 
         eyes.setMatchLevel(params.MATCH_MODE);
         eyes.setStitchMode(StitchMode.CSS);
-        eyes.setForceFullPageScreenshot(false);
+        eyes.setForceFullPageScreenshot(true);
         if(params.FULL_SCREEN) eyes.setForceFullPageScreenshot(true);
         eyes.setSendDom(true);
         eyes.open(driver,APP_NAME, testName, new RectangleSize(1200, 600));
@@ -82,7 +82,7 @@ public class LocalChrome {
 
 
         //Allows for filtering dashboard view
-        eyes.addProperty("Version", "v1.0.1 second request");
+        // eyes.addProperty("Version", "v1.0.1 second request");
 
         System.out.println("START THREAD ID - " + Thread.currentThread().getId() + " " + browserName + " " + browserVersion);
         System.out.println("baseBeforeClass took " + (System.currentTimeMillis() - before) + "ms");
