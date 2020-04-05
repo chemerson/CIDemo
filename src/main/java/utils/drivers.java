@@ -47,6 +47,7 @@ public class drivers {
 
             if(browserName.equalsIgnoreCase("CHROME")) {
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
                 options.addArguments("--disable-popup-blocking");
                 options.addArguments("--disable-default-apps");
                 options.addArguments("--disable-infobars");
