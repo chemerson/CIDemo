@@ -28,7 +28,7 @@ public class LocalChrome {
         Integer i=0;
         String testName = params.TEST_NAME;
         long before;
-        
+
         //eyes.setBaselineEnvName("FF1200x900");
         //eyes.setAppName();
 
