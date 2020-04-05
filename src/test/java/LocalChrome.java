@@ -9,11 +9,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.params;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class LocalChrome {
@@ -33,10 +28,7 @@ public class LocalChrome {
         Integer i=0;
         String testName = params.TEST_NAME;
         long before;
-
-        //Force to check against specific baseline branch
-        //eyes.setBaselineBranchName("CIBC");
-        //Force; to check with the forced baselines corresponding environment
+        
         //eyes.setBaselineEnvName("FF1200x900");
         //eyes.setAppName();
 
@@ -46,8 +38,6 @@ public class LocalChrome {
 
         eyes.setMatchLevel(params.MATCH_MODE);
         eyes.setStitchMode(StitchMode.CSS);
-        eyes.setForceFullPageScreenshot(true);
-        if(params.FULL_SCREEN) eyes.setForceFullPageScreenshot(true);
         eyes.setSendDom(true);
         eyes.open(driver,APP_NAME, testName, new RectangleSize(1200, 600));
 
