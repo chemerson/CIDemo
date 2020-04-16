@@ -38,10 +38,10 @@ public class Sauce {
         eyes.open(driver,APP_NAME, testName, new RectangleSize(1200, 600));
 
         // Navigate the browser to the "ACME" demo app
-        //driver.get("https://demo.applitools.com");
+        driver.get("https://demo.applitools.com");
 
         //To see visual bugs, change the above URL to:
-        driver.get("https://demo.applitools.com/index_v2.html");
+        //driver.get("https://demo.applitools.com/index_v2.html");
 
         // Visual checkpoint #1 - Check the login page.
         eyes.checkWindow("Login Window");
@@ -69,9 +69,6 @@ public class Sauce {
         eyes = utils.myeyes.getEyes(threadId);
         eyes.setLogHandler(new FileLogger("log/Eyes_LC.log",true,true));
         eyes.setServerUrl(params.EYES_URL);
-
-       // BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
-       // if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
 
         //Set only once per Jenkins job
         BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
