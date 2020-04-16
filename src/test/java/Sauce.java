@@ -70,8 +70,12 @@ public class Sauce {
         eyes.setLogHandler(new FileLogger("log/Eyes_LC.log",true,true));
         eyes.setServerUrl(params.EYES_URL);
 
-        BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
-        if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
+       // BatchInfo batchInfo = new BatchInfo(BATCH_NAME);
+       // if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
+
+        //Set only once per Jenkins job
+        BatchInfo mybatch = new BatchInfo(System.getenv("APPLITOOLS_BATCH_NAME"));
+        mybatch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
 
         eyes.setBatch(batchInfo);
 
