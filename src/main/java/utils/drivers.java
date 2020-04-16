@@ -67,7 +67,7 @@ public class drivers {
         if (chromeDrivers == null || !chromeDrivers.containsKey(threadId)) {
 
             ChromeOptions cOptions = new ChromeOptions();
-            System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");  //work for Travis, commenting for Jenkins
+          //  System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");  //work for Travis, commenting for Jenkins
 
             cOptions.addArguments("--headless");
             cOptions.addArguments("--disable-popup-blocking");
