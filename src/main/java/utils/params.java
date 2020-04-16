@@ -16,7 +16,7 @@ public class params {
     public static Boolean changePage = false;  // to change the content for demo purposes
     public static String APP_NAME = name + suffix;
     public static String TEST_NAME = name + suffix;
-    public static String URL_FILE = name + ".csv";
+    public static String URL_FILE = "src/main/resources/" + name + ".csv";
     public static MatchLevel MATCH_MODE = MatchLevel.LAYOUT;
     public static Boolean FULL_SCREEN = true;
     public static Boolean DISABLE_EYES = false;
