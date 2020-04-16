@@ -11,7 +11,7 @@ public class params {
 
     public static String GRID_URL = "http://localhost:4444/wd/hub";
 
-    private static String name = "url";
+    private static String name = "Appltioools";
     private static String suffix = " CI";
     public static Boolean changePage = false;  // to change the content for demo purposes
     public static String APP_NAME = name + suffix;
