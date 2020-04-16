@@ -18,7 +18,7 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng_LocalChrome.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_sauce.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>com.applitools</groupId>
             <artifactId>eyes-selenium-java3</artifactId>
-            <version>3.158.2</version>
+            <version>3.160.2</version>
         </dependency>
 
         <!--

@@ -63,7 +63,8 @@ public class urlscan {
                 //utils.page.home(driver);
                 utils.page.suspend(2000);
                 utils.page.changePage(driver);
-                eyes.check(arr[i], Target.window());
+                eyes.check(arr[i], Target.window().fully());
+
             } catch (Exception e) {
                 System.out.println("FAILED URL " + +i + " in " + (System.currentTimeMillis() - before) + "ms");
                 e.printStackTrace();

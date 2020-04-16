@@ -1,7 +1,10 @@
-import com.applitools.eyes.*;
+import com.applitools.eyes.BatchInfo;
+import com.applitools.eyes.FileLogger;
+import com.applitools.eyes.RectangleSize;
+import com.applitools.eyes.TestResults;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.StitchMode;
-import com.applitools.eyes.selenium.fluent.Target;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +14,7 @@ import utils.params;
 
 import java.util.concurrent.TimeUnit;
 
-public class LocalChrome {
+public class Sauce {
 
     protected RemoteWebDriver driver;
     protected Eyes eyes;
@@ -27,14 +30,6 @@ public class LocalChrome {
 
         Integer i=0;
         String testName = params.TEST_NAME;
-        long before;
-
-        //eyes.setBaselineEnvName("FF1200x900");
-        //eyes.setAppName();
-
-        //Set the environment name in the test batch results
-        //eyes.setEnvName(driver.getCapabilities().getBrowserName() + " " + driver.getCapabilities().getVersion());
-        //eyes.setEnvName("CIBC");
 
         eyes.setMatchLevel(params.MATCH_MODE);
         eyes.setStitchMode(StitchMode.CSS);
@@ -66,13 +61,9 @@ public class LocalChrome {
 
         eyes.setBatch(batchInfo);
 
-        driver = utils.drivers.getLocalChrome(threadId);
+        driver = utils.drivers.sauce();
         driver.manage().timeouts().setScriptTimeout(90, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
-
-
-        //Allows for filtering dashboard view
-        // eyes.addProperty("Version", "v1.0.1 second request");
 
         System.out.println("START THREAD ID - " + Thread.currentThread().getId() + " " + browserName + " " + browserVersion);
         System.out.println("baseBeforeClass took " + (System.currentTimeMillis() - before) + "ms");
@@ -83,7 +74,6 @@ public class LocalChrome {
 
         if (driver != null) {
             long before = System.currentTimeMillis();
-            //eyes.abortIfNotClosed(); // deprecated
             if(!eyes.getIsOpen()) eyes.abort();
             driver.quit();
             System.out.println("Driver quit took " + (System.currentTimeMillis() - before) + "ms");
