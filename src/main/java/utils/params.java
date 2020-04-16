@@ -22,6 +22,9 @@ public class params {
     public static Boolean DISABLE_EYES = false;
     public static int MATCH_TIMEOUT = 1000;
 
+    public static String SAUCE_UN = "matan";
+    public static String SAUCE_KEY = "a56c483d-9c60-41e3-a396-d7a998141734";
+
 
     public static String BATCH_NAME = getBatchName();
     public static String BATCH_ID = getBatchId();
