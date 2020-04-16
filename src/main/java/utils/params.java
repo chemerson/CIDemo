@@ -5,7 +5,7 @@ import com.applitools.eyes.MatchLevel;
 public class params {
 
     //public static String EYES_KEY = System.getProperty("eyesAPIKey", "DEFAULT_TOKEN");
-    public static String EYES_KEY = "bq91GrRWoSL26p7qINN2QdgGdWI9evF1abIREFBaSEo110";
+    public static String EYES_KEY = System.getenv("APPLITOOLS_API_KEY");
 
     public static String EYES_URL = "https://eyes.applitools.com";
 
@@ -22,8 +22,8 @@ public class params {
     public static Boolean DISABLE_EYES = false;
     public static int MATCH_TIMEOUT = 1000;
 
-    public static String SAUCE_UN = "matan";
-    public static String SAUCE_KEY = "a56c483d-9c60-41e3-a396-d7a998141734";
+    public static String SAUCE_UN = System.getenv("SAUCE_UN");
+    public static String SAUCE_KEY = System.getenv("SAUCE_KEY");
 
 
     public static String BATCH_NAME = getBatchName();
