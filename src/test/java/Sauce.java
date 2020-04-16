@@ -4,6 +4,7 @@ import com.applitools.eyes.RectangleSize;
 import com.applitools.eyes.TestResults;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.StitchMode;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -36,7 +37,20 @@ public class Sauce {
         eyes.setSendDom(true);
         eyes.open(driver,APP_NAME, testName, new RectangleSize(1200, 600));
 
-        tests.urlscan.scanlist(driver, eyes, params.URL_FILE);
+        // Navigate the browser to the "ACME" demo app
+        //driver.get("https://demo.applitools.com");
+
+        //To see visual bugs, change the above URL to:
+        driver.get("https://demo.applitools.com/index_v2.html");
+
+        // Visual checkpoint #1 - Check the login page.
+        eyes.checkWindow("Login Window");
+
+        // This will create a test with two test steps.
+        driver.findElement(By.id("log-in")).click();
+
+        // Visual checkpoint #2 - Check the app page.
+        eyes.checkWindow("App Window");
 
         TestResults testResult = eyes.close(false);
         System.out.println("Applitools Test Results");
