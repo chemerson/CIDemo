@@ -74,7 +74,7 @@ public class Sauce {
        // if(BATCH_ID!=null) batchInfo.setId(BATCH_ID);
 
         //Set only once per Jenkins job
-        BatchInfo batchInfo = new BatchInfo(System.getenv("APPLITOOLS_BATCH_NAME"));
+        BatchInfo batchInfo = new BatchInfo(BATCH_NAME));
         batchInfo.setId(System.getenv("APPLITOOLS_BATCH_ID"));
 
         eyes.setBatch(batchInfo);
