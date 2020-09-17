@@ -2,6 +2,8 @@ package utils;
 
 import com.applitools.eyes.MatchLevel;
 
+import java.util.UUID;
+
 public class params {
 
     //public static String EYES_KEY = System.getProperty("eyesAPIKey", "DEFAULT_TOKEN");
@@ -38,12 +40,15 @@ public class params {
         return batchName;
     }
 
-    private static String getBatchId(){
+    public static String getBatchId(){
         String batchId = null;
 
         if(System.getenv("APPLITOOLS_BATCH_ID") != null) {
             batchId = System.getenv("APPLITOOLS_BATCH_ID");
             System.out.println("Batch Id found in environment: " + batchId.toString());
+        } else {
+            UUID uuid = java.util.UUID.randomUUID();
+            batchId = "CIDemo " + uuid.toString();
         }
 
         return batchId;
