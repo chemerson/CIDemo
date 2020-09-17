@@ -24,8 +24,8 @@ public class params {
     public static Boolean DISABLE_EYES = false;
     public static int MATCH_TIMEOUT = 1000;
 
-    public static String SAUCE_UN = System.getenv("SAUCE_UN");
-    public static String SAUCE_KEY = System.getenv("SAUCE_KEY");
+    public static String SAUCE_UN = getSauceUN();
+    public static String SAUCE_KEY = getSauceKey();
 
 
     public static String BATCH_NAME = getBatchName();
@@ -45,13 +45,38 @@ public class params {
 
         if(System.getenv("APPLITOOLS_BATCH_ID") != null) {
             batchId = System.getenv("APPLITOOLS_BATCH_ID");
-            System.out.println("Batch Id found in environment: " + batchId.toString());
+            System.out.println("Batch Id found in environment: " + batchId);
         } else {
             UUID uuid = java.util.UUID.randomUUID();
             batchId = "CIDemo " + uuid.toString();
+            System.out.println("Batch Id generated: " + batchId);
         }
 
         return batchId;
+    }
+
+    public static String getSauceUN(){
+        String sauceUN;
+        if(System.getenv("SAUCE_UN") != null) {
+            sauceUN = System.getenv("SAUCE_UN");
+            System.out.println("Sauce UN found in environment: " + sauceUN);
+        } else {
+            sauceUN = "applitools-dev";
+            System.out.println("Sauce UN hardcoded!! : " + sauceUN);
+        }
+        return sauceUN;
+    }
+
+    public static String getSauceKey(){
+        String sauceKey;
+        if(System.getenv("SAUCE_KEY") != null) {
+            sauceKey = System.getenv("SAUCE_KEY");
+            System.out.println("Sauce key found in environment: " + sauceKey);
+        } else {
+            sauceKey = "7f853c17-24c9-4d8f-a679-9cfde5b43951";
+            System.out.println("Sauce key hardcoded!! : " + sauceKey);
+        }
+        return sauceKey;
     }
 }
 
