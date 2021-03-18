@@ -38,17 +38,16 @@ public class Sauce {
         eyes.open(driver,APP_NAME, testName, new RectangleSize(2200, 1000));
 
         // Navigate the browser to the "ACME" demo app
-       // driver.get("https://demo.applitools.com");
-        driver.get("https://hf.org/staywell/");
+       driver.get("https://demo.applitools.com");
 
         //To see visual bugs, change the above URL to:
         //driver.get("https://demo.applitools.com/index_v2.html");
 
         // Visual checkpoint #1 - Check the login page.
-        eyes.checkWindow("COVID Health First");
+        eyes.checkWindow("Demo");
 
         // This will create a test with two test steps.
-       // driver.findElement(By.id("log-in")).click();
+        driver.findElement(By.id("log-in")).click();
 
         // Visual checkpoint #2 - Check the app page.
         eyes.checkWindow("App Window");
